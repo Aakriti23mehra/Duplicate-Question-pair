@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template
 import pickle
 import helper
@@ -6,7 +7,11 @@ import helper
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open(r'C:\Users\mehra\Downloads\model.pkl', 'rb'))
+# Load the trained model from the project directory
+HERE = os.path.dirname(__file__)
+model_path = os.path.join(HERE, 'model.pkl')
+model = pickle.load(open(model_path, 'rb'))
+
 
 
 @app.route('/')
