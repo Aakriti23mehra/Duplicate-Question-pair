@@ -1,10 +1,17 @@
+
+import os
+import pickle
 import re
 from bs4 import BeautifulSoup
 import distance
 from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
-cv = pickle.load(open(r'C:\Users\mehra\Downloads\cv.pkl', 'rb'))
+# Load the vectorizer from a file in the project directory
+HERE = os.path.dirname(__file__)
+cv_path = os.path.join(HERE, 'cv.pkl')
+cv = pickle.load(open(cv_path, 'rb'))
+
 
 
 
